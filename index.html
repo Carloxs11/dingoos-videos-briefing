@@ -1,0 +1,383 @@
+<title>Dingoos Black Friday · Briefing de vídeo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Fragment+Mono&display=swap">
+<style>
+/* Layout: banda de portada verde Navy + documento de una columna (máx. 980px); cada vídeo es una "ficha de rodaje" con su guion por planos. */
+:root{
+  --navy:#064035; --navy-2:#084b3d; --mint:#76f0b0; --lime:#a7e563;
+  --bg:#f0f4f3; --surface:#ffffff; --fg:#10201b; --muted:#4e5f59; --line:#d3dfdb;
+  --chip:#e7f9d3; --chip-fg:#2f5a0e; --warn-bg:#fff3d6; --warn-fg:#7a4b00;
+  --bad:#b4322a; --good:#167a4a; --accent:#0a6b55;
+  --f-display:"Poppins",system-ui,sans-serif;
+  --f-body:"Instrument Sans","Inter",system-ui,sans-serif;
+  --f-mono:"Fragment Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1714; --surface:#11211d; --fg:#e6f1ed; --muted:#9db3ab; --line:#23392f;
+  --chip:#1f3a12; --chip-fg:#c8f59a; --warn-bg:#3a2c0b; --warn-fg:#ffd27a;
+  --bad:#ff7d73; --good:#5fe39f; --accent:#76f0b0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1714; --surface:#11211d; --fg:#e6f1ed; --muted:#9db3ab; --line:#23392f;
+  --chip:#1f3a12; --chip-fg:#c8f59a; --warn-bg:#3a2c0b; --warn-fg:#ffd27a;
+  --bad:#ff7d73; --good:#5fe39f; --accent:#76f0b0; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:600}
+h4{font-size:1rem;font-weight:600}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+a{color:var(--accent)}
+
+/* Portada */
+.cover{background:var(--navy);color:#eaf6f1;padding-block:48px 40px}
+.cover .wrap{display:grid;gap:22px}
+.brandrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-family:var(--f-display);font-weight:800;font-size:1.1rem;letter-spacing:.01em;color:#fff}
+.logo span{color:var(--mint)}
+.cover .eyebrow{color:var(--mint)}
+.cover h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;color:#fff;letter-spacing:-.02em}
+.cover h1 em{font-style:normal;color:var(--mint)}
+.cover p.lede{max-width:62ch;color:#cfe5dc;font-size:1.06rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.meta span{font-family:var(--f-mono);font-size:.78rem;padding:6px 10px;border:1px solid rgba(118,240,176,.35);border-radius:999px;color:#d9f7e8}
+.deadline{background:var(--mint);color:var(--navy);font-weight:700;border-color:var(--mint)!important}
+
+main{display:grid;gap:56px;padding-block:44px 80px}
+section{display:grid;gap:20px}
+.sec-head{display:grid;gap:8px}
+.sec-head p{color:var(--muted);max-width:68ch}
+
+/* TL;DR */
+.tldr{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.tldr div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start}
+.tldr b{font-family:var(--f-display);font-size:1rem}
+.tldr p{color:var(--muted);font-size:.95rem}
+
+/* Números */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.kpi{background:var(--navy);color:#eaf6f1;border-radius:14px;padding:18px;display:grid;gap:4px}
+.kpi .n{font-family:var(--f-display);font-weight:800;font-size:2rem;color:var(--mint);font-variant-numeric:tabular-nums}
+.kpi .l{font-size:.9rem;color:#cfe5dc}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;background:color-mix(in srgb,var(--surface) 85%,var(--line))}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.good{color:var(--good);font-weight:600}
+.bad{color:var(--bad);font-weight:600}
+.note{font-size:.85rem;color:var(--muted)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.panel ul,.panel ol{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.panel li{padding-left:2px}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--chip-fg)}
+.tag.red{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.chk{display:inline-block;font-family:var(--f-mono);font-size:.68rem;padding:1px 6px;border-radius:5px;background:var(--warn-bg);color:var(--warn-fg);white-space:nowrap;vertical-align:1px}
+
+/* Fichas de vídeo */
+.video{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.vhead{background:var(--navy);color:#eaf6f1;padding:22px 22px 20px;display:grid;gap:10px}
+.vhead .eyebrow{color:var(--mint)}
+.vhead h3{font-size:clamp(1.3rem,3vw,1.7rem);color:#fff;font-weight:700}
+.vhead .why{color:#cfe5dc;max-width:70ch}
+.vmeta{display:flex;flex-wrap:wrap;gap:8px}
+.vmeta span{font-family:var(--f-mono);font-size:.74rem;padding:4px 9px;border-radius:999px;background:rgba(118,240,176,.12);color:#d9f7e8}
+.vbody{padding:22px;display:grid;gap:22px}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.spec{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:4px;align-content:start}
+.spec .k{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.spec p{font-size:.93rem}
+.hooks{display:grid;gap:8px}
+.hooks li{background:var(--chip);color:var(--chip-fg);border-radius:10px;padding:10px 12px;list-style:none;font-weight:500}
+.hooks ol{margin:0;padding:0;display:grid;gap:8px}
+.script td:first-child{width:72px}
+.script td.vo{font-weight:600;font-size:.98rem}
+.script td.ost{font-family:var(--f-display);font-weight:600;color:var(--accent)}
+.script .shot{color:var(--muted);font-size:.9rem}
+.copyrow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+button.copy{font-family:var(--f-body);font-weight:600;font-size:.88rem;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:7px 14px;cursor:pointer}
+button.copy:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+button.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.adcopy{border-left:3px solid var(--lime);padding:4px 0 4px 14px;display:grid;gap:6px}
+.adcopy p{font-size:.94rem;white-space:pre-line}
+
+.checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.checklist div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start}
+.checklist p{font-size:.93rem;color:var(--muted)}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-family:var(--f-mono);font-size:.78rem;text-decoration:none;padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--fg);background:var(--surface)}
+.toc a:hover{border-color:var(--accent)}
+
+footer{background:var(--navy);color:#cfe5dc;padding-block:28px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.9rem}
+footer b{color:#fff}
+
+@media (max-width:640px){
+  .script thead{display:none}
+  .script tr{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--line);padding:10px 0}
+  .script td{border:0;padding:3px 12px}
+  .script td:first-child{width:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandrow">
+      <div class="logo">navy<span>.</span>marketing</div>
+      <div class="meta"><span>Cliente: Dingoos</span><span>17 · 11 · 2026</span><span class="deadline">Grabar 18–19 nov</span></div>
+    </div>
+    <div class="eyebrow">Briefing creativo · Vídeos Black Friday</div>
+    <h1>Black Friday Dingoos:<br><em>5 vídeos para vender el descuento</em></h1>
+    <p class="lede">Guiones, planos y textos en pantalla listos para grabar. Todos hablan de la oferta de Black Friday: hasta −50 % en cursos seleccionados, matrícula gratis, y asesoría y visado sin coste. Mantienen el estilo de vuestros vídeos de la Beca: chica real en Australia, ritmo rápido y un mensaje claro.</p>
+    <nav class="toc" aria-label="Índice">
+      <a href="#ganadores">Estilo</a><a href="#reglas">Reglas de grabación</a><a href="#v1">Vídeo 1</a><a href="#v2">Vídeo 2</a><a href="#v3">Vídeo 3</a><a href="#v4">Vídeo 4</a><a href="#v5">Vídeo 5</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+
+
+<section id="ganadores">
+  <div class="sec-head"><div class="eyebrow">01 · Estilo</div><h2>Lo que mantenemos de vuestros vídeos de la Beca</h2>
+  <p>Los 5 vídeos siguen la misma línea que "Black Friday 2 V1" y "Black Friday 2026 V2".</p></div>
+  <div class="cols">
+    <div class="panel"><h4>1 · La primera frase es una promesa con lugar</h4><p>"¿Cómo puedes estudiar en Australia gratis?" y "Dingoos busca a alguien para vivir 3 meses aquí en Australia". Se dice <b>Australia</b> en el primer segundo y se ve en el plano.</p></div>
+    <div class="panel"><h4>2 · Prueba personal en 3 segundos</h4><p>"Yo lo hice y tres años después aquí sigo", con plano de brazos abiertos frente al mar. Habla alguien que ya lo ha vivido, no la marca.</p></div>
+    <div class="panel"><h4>3 · Selfie con micro de solapa y cortes cada 2–3 s</h4><p>Se alterna la cara con B-roll real: playa, escuela, compañeros y una videollamada con el guía. No hay escenas montadas ni música protagonista.</p></div>
+    <div class="panel"><h4>4 · Subtítulo palabra a palabra en el centro</h4><p>Blanco, en negrita y centrado. Así se sigue el vídeo sin sonido. Lo mantenemos y añadimos <b>cifras grandes</b> en pantalla.</p></div>
+    <div class="panel"><h4>5 · Proceso en pasos</h4><p>"Primero… hablarás con uno de nuestros guías…". Explicar el proceso quita miedo. En los vídeos nuevos los pasos son el ahorro.</p></div>
+    <div class="panel"><h4>6 · "Esto no es un sorteo"</h4><p>Desmontar una objeción en voz alta. En los vídeos nuevos lo usamos para hablar a quien de verdad quiere irse: "No es gratis. Es para ti si ya tienes Australia en tus planes".</p></div>
+  </div>
+</section>
+
+<section id="reglas">
+  <div class="sec-head"><div class="eyebrow">02 · Reglas para todo el rodaje</div><h2>Checklist de grabación</h2></div>
+  <div class="checklist">
+    <div><h4>Formato</h4><p>Vertical 9:16, 4K a 30 fps (o 1080p si es lo que hay), luz natural de frente. Micro de solapa como en los vídeos de la Beca. No usar el audio del móvil.</p></div>
+    <div><h4>Talento</h4><p><b>Talento A</b>: la chica del V1, la que ya vive en Australia ("yo lo hice"). <b>Talento B</b>: la chica con la camiseta de Dingoos del V2. <b>Guía</b>: el chico de la videollamada. Ropa de Dingoos visible en al menos 2 vídeos.</p></div>
+    <div><h4>Hooks</h4><p>Grabar cada vídeo completo una vez y después <b>los 3 hooks por separado</b>, 2 tomas de cada uno. El hook se monta encima, así salen 3 versiones por vídeo sin regrabar.</p></div>
+    <div><h4>Versión por país</h4><p>Grabar además una frase de entrada por país: "Si eres de México…", "Si eres de Chile…", "Si eres de Ecuador…", "Si eres de España…". Nombrar el país en el primer segundo hace que quien lo ve sienta que le hablan a él.</p></div>
+    <div><h4>Zona segura</h4><p>Nada importante en el 14 % superior ni en el 35 % inferior de la pantalla, porque ahí está la interfaz de Reels. Cara y cifras en el centro.</p></div>
+    <div><h4>Ritmo</h4><p>Cortar todas las pausas y respiraciones. Una idea por frase. Un corte o cambio de plano como mucho cada 3 s. Sin intro ni logo al principio.</p></div>
+    <div><h4>Texto en pantalla</h4><p>Subtítulo palabra a palabra como ahora, más las cifras clave en grande (columna "Texto en pantalla"). Escribir "AUD" junto a cada precio.</p></div>
+    <div><h4>B-roll común</h4><p>Playa y rocas (ya lo tenéis), aula de la escuela, pasillo de la escuela, videollamada con el guía, móvil rellenando el formulario de la landing, calendario y manos escribiendo en papel.</p></div>
+    <div><h4>Lo que no se dice</h4><p>Nada de "sorteo", "beca" ni "gratis" sin cifra. Cada vídeo cierra con "aplican condiciones" en pantalla.</p></div>
+    <div><h4>Datos en amarillo</h4><p>Las etiquetas <span class="chk">en amarillo</span> marcan datos que hay que poner o revisar antes de grabar: importes, fechas o la historia real de la talento. Todo lo que se diga tiene que ser real.</p></div>
+  </div>
+</section>
+
+<!-- ===================== VÍDEO 1 ===================== -->
+<section id="v1">
+  <article class="video">
+    <div class="vhead">
+      <div class="eyebrow">Vídeo 1 · Ángulo CUANTÍA</div>
+      <h3>"El precio tachado": de 6.800 a 3.680 AUD</h3>
+      <p class="why">Un precio que se tacha delante de la cámara. La imagen se entiende sin sonido y deja grabadas dos cifras: el precio de siempre y el de Black Friday.</p>
+      <div class="vmeta"><span>Talento B</span><span>Exterior: parque o playa</span><span>≈ 30 s</span><span>Tono: directo</span></div>
+    </div>
+    <div class="vbody">
+      <div class="specs">
+        <div class="spec"><span class="k">Para quién</span><p>De 20 a 35 años, ya ha mirado Australia y le frena el precio.</p></div>
+        <div class="spec"><span class="k">Objetivo del vídeo</span><p>Que recuerde dos cifras: 6.800 y 3.680 AUD.</p></div>
+        <div class="spec"><span class="k">Atrezo</span><p>Folio A4 con "6.800 AUD" escrito en grande y un rotulador grueso rojo o negro.</p></div>
+      </div>
+      <div><h4>3 hooks para grabar (primeros 3 s)</h4>
+        <ol class="hooks">
+          <li>"Seis meses estudiando inglés en Australia cuestan 6.800 dólares… o esto." (tacha la cifra)</li>
+          <li>"Este es el precio más bajo que vas a ver este año para irte 6 meses a Australia."</li>
+          <li>"No te vayas a Australia sin ver primero este precio."</li>
+        </ol></div>
+      <div class="copyrow"><h4>Guion</h4><button class="copy" type="button" data-target="s1">Copiar guion</button></div>
+      <div class="tablebox"><table class="script" id="s1">
+        <thead><tr><th>Tiempo</th><th>Plano</th><th>Voz</th><th>Texto en pantalla</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">0–3 s</td><td class="shot">Primer plano. Levanta el folio con "6.800 AUD" a la altura de la cara.</td><td class="vo">"Seis meses estudiando inglés en Australia cuestan 6.800 dólares australianos…"</td><td class="ost">6 MESES EN AUSTRALIA</td></tr>
+          <tr><td class="mono">3–6 s</td><td class="shot">Tacha la cifra de un trazo y escribe "3.680" debajo. Cámara cerca del papel.</td><td class="vo">"…o 3.680 si lo reservas este Black Friday."</td><td class="ost"><s>6.800 AUD</s> → 3.680 AUD</td></tr>
+          <tr><td class="mono">6–12 s</td><td class="shot">B-roll: aula de la escuela y pasillo con compañeros.</td><td class="vo">"Es el mayor descuento del año: hasta un 50 % en cursos seleccionados."</td><td class="ost">HASTA −50 %</td></tr>
+          <tr><td class="mono">12–19 s</td><td class="shot">B-roll: videollamada con el guía. Vuelve a ella hablando.</td><td class="vo">"Y lo que nunca te cobramos: la asesoría y el trámite de tu visado. A nosotros nos pagan las escuelas, no tú."</td><td class="ost">ASESORÍA + VISADO: 0 €</td></tr>
+          <tr><td class="mono">19–25 s</td><td class="shot">Ella seria y cercana. Plano fijo.</td><td class="vo">"Ojo: esto no es un sorteo ni es gratis. Es para ti si Australia ya está en tus planes y quieres pagarla a mitad de precio."</td><td class="ost">NO ES UN SORTEO</td></tr>
+          <tr><td class="mono">25–30 s</td><td class="shot">Señala hacia abajo, al botón. Inserto del móvil rellenando el formulario.</td><td class="vo">"Rellena el formulario y tu guía te dice qué descuento te toca. Solo hasta el 30 de noviembre."</td><td class="ost">HASTA EL 30/11 · Aplican condiciones</td></tr>
+        </tbody></table></div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== VÍDEO 2 ===================== -->
+<section id="v2">
+  <article class="video">
+    <div class="vhead">
+      <div class="eyebrow">Vídeo 2 · Ángulo SIN COSTE + MATRÍCULA GRATIS</div>
+      <h3>"Lo que pagas y lo que no" para irte a Australia</h3>
+      <p class="why">Una lista de costes que se va rellenando con checks en verde. Explica de forma sencilla qué no paga el estudiante con Dingoos, qué sí paga y qué le sale más barato este mes.</p>
+      <div class="vmeta"><span>Talento A</span><span>Interior: su casa u oficina (el set del V1)</span><span>≈ 30 s</span><span>Tono: explicativo</span></div>
+    </div>
+    <div class="vbody">
+      <div class="specs">
+        <div class="spec"><span class="k">Para quién</span><p>Le da miedo el papeleo y no sabe cuánto cuesta todo.</p></div>
+        <div class="spec"><span class="k">Objetivo del vídeo</span><p>Que entienda que con Dingoos solo paga lo que pagaría en cualquier caso, y este mes más barato.</p></div>
+        <div class="spec"><span class="k">Edición</span><p>Lista en pantalla que se va rellenando: "0 €" en verde y "lo pagas tú" en blanco.</p></div>
+      </div>
+      <div><h4>3 hooks para grabar</h4>
+        <ol class="hooks">
+          <li>"Te explico en 20 segundos qué pagas y qué no pagas para irte a Australia este mes."</li>
+          <li>"Para irte a Australia hay 5 pagos. Este mes, 3 te salen a cero." <span class="chk">confirmar conteo</span></li>
+          <li>"Lo que ninguna agencia te cuenta del primer pago para irte a Australia."</li>
+        </ol></div>
+      <div class="copyrow"><h4>Guion</h4><button class="copy" type="button" data-target="s2">Copiar guion</button></div>
+      <div class="tablebox"><table class="script" id="s2">
+        <thead><tr><th>Tiempo</th><th>Plano</th><th>Voz</th><th>Texto en pantalla</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">0–3 s</td><td class="shot">Selfie con micro, como en el V1. Muy cerca de cámara.</td><td class="vo">"Te explico en 20 segundos qué pagas y qué no para irte a Australia este mes."</td><td class="ost">QUÉ PAGAS Y QUÉ NO 🇦🇺</td></tr>
+          <tr><td class="mono">3–7 s</td><td class="shot">Cuenta con los dedos. Inserto de la videollamada con el guía.</td><td class="vo">"Uno: la asesoría para elegir escuela y ciudad. Cero euros."</td><td class="ost">✔ Asesoría · 0 €</td></tr>
+          <tr><td class="mono">7–11 s</td><td class="shot">Inserto de papeles o pantalla con el formulario del visado.</td><td class="vo">"Dos: el trámite del visado lo hacen nuestros expertos. También cero."</td><td class="ost">✔ Trámite del visado · 0 €</td></tr>
+          <tr><td class="mono">11–15 s</td><td class="shot">Vuelve a ella. Sonrisa.</td><td class="vo">"Tres: la matrícula del curso, que es el primer pago. Este mes la ponemos nosotros."</td><td class="ost">✔ Matrícula · GRATIS en BF <span class="chk">poner importe</span></td></tr>
+          <tr><td class="mono">15–21 s</td><td class="shot">B-roll del aula. Ella en off.</td><td class="vo">"¿Y qué pagas tú? El curso, el seguro médico, la tasa del visado y el vuelo. El curso, este mes, hasta un 50 % más barato."</td><td class="ost">Curso · hasta −50 %</td></tr>
+          <tr><td class="mono">21–26 s</td><td class="shot">Ella. Plano fijo.</td><td class="vo">"¿Por qué la asesoría es gratis? Porque nos pagan las escuelas. Tú no pagas ni un euro de más."</td><td class="ost">NOS PAGAN LAS ESCUELAS</td></tr>
+          <tr><td class="mono">26–31 s</td><td class="shot">Señala abajo. Inserto del formulario.</td><td class="vo">"Rellena el formulario y te pasamos el precio de tu curso con el descuento. Solo hasta final de mes."</td><td class="ost">PIDE TU PRECIO · Aplican condiciones</td></tr>
+        </tbody></table></div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== VÍDEO 3 ===================== -->
+<section id="v3">
+  <article class="video">
+    <div class="vhead">
+      <div class="eyebrow">Vídeo 3 · Ángulo RESERVA AHORA, VIAJA DESPUÉS</div>
+      <h3>"Si te vas en 2027, se paga ahora"</h3>
+      <p class="why">Responde a la duda más habitual en Black Friday: "todavía no me puedo ir". El mensaje es que se reserva ahora con el descuento y se viaja cuando uno quiera.</p>
+      <div class="vmeta"><span>Talento A</span><span>Paseando por la costa + mesa con calendario</span><span>≈ 25 s</span><span>Tono: cercano y claro</span></div>
+    </div>
+    <div class="vbody">
+      <div class="specs">
+        <div class="spec"><span class="k">Para quién</span><p>Tiene pensado irse "el año que viene" y cree que aún no le toca reservar.</p></div>
+        <div class="spec"><span class="k">Objetivo del vídeo</span><p>Que entienda que reservar hoy no le obliga a viajar ya. <span class="chk">confirmar plazo máximo de inicio</span></p></div>
+        <div class="spec"><span class="k">Atrezo</span><p>Calendario de 2027 de papel o en el móvil y un rotulador para marcar el mes.</p></div>
+      </div>
+      <div><h4>3 hooks para grabar</h4>
+        <ol class="hooks">
+          <li>"Si te quieres ir a Australia en 2027, el peor error es esperar a 2027 para pagarlo."</li>
+          <li>"¿Llevas años diciendo 'el año que viene me voy'? Esto es para ti."</li>
+          <li>"Reservé mi Australia en noviembre y me fui meses después. Te explico por qué." <span class="chk">solo si es verdad</span></li>
+        </ol></div>
+      <div class="copyrow"><h4>Guion</h4><button class="copy" type="button" data-target="s3">Copiar guion</button></div>
+      <div class="tablebox"><table class="script" id="s3">
+        <thead><tr><th>Tiempo</th><th>Plano</th><th>Voz</th><th>Texto en pantalla</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">0–3 s</td><td class="shot">Selfie caminando por la costa. Mar al fondo.</td><td class="vo">"Si te quieres ir a Australia en 2027, el peor error es esperar a 2027 para pagarlo."</td><td class="ost">¿TE VAS EN 2027?</td></tr>
+          <tr><td class="mono">3–8 s</td><td class="shot">Corte a la mesa: rodea un mes en el calendario de 2027.</td><td class="vo">"Los precios de Black Friday solo existen ahora: hasta un 50 % en cursos seleccionados y la matrícula gratis."</td><td class="ost">HASTA −50 % + MATRÍCULA GRATIS</td></tr>
+          <tr><td class="mono">8–14 s</td><td class="shot">Vuelve a ella en la costa.</td><td class="vo">"Lo reservas este mes con el descuento y la fecha de salida la eliges tú después."</td><td class="ost">RESERVAS HOY · VIAJAS CUANDO QUIERAS</td></tr>
+          <tr><td class="mono">14–19 s</td><td class="shot">B-roll: alguien cerrando la maleta o en el aeropuerto. Si no hay, playa.</td><td class="vo">"Así tienes meses para ahorrar, preparar el visado con tu guía y llegar sin prisas."</td><td class="ost">MESES PARA PREPARARLO</td></tr>
+          <tr><td class="mono">19–23 s</td><td class="shot">Ella directa a cámara, más seria.</td><td class="vo">"Eso sí: si Australia es un 'algún día', no lo rellenes. Si ya tienes fecha en la cabeza, sí."</td><td class="ost">SOLO SI TIENES FECHA</td></tr>
+          <tr><td class="mono">23–27 s</td><td class="shot">Inserto del formulario: en "¿Cuándo quieres viajar?" marca "El año que viene".</td><td class="vo">"Formulario abajo. Hasta el 30 de noviembre."</td><td class="ost">HASTA EL 30/11 · Aplican condiciones</td></tr>
+        </tbody></table></div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== VÍDEO 4 ===================== -->
+<section id="v4">
+  <article class="video">
+    <div class="vhead">
+      <div class="eyebrow">Vídeo 4 · Ángulo HISTORIA REAL</div>
+      <h3>"Hace 3 años me fui con un curso de inglés"</h3>
+      <p class="why">La misma chica del vídeo de la Beca, con la misma credibilidad ("yo lo hice"). Esta vez cuenta su historia y por qué este mes es el mejor momento para dar el paso.</p>
+      <div class="vmeta"><span>Talento A</span><span>Rocas o mar (plano de brazos abiertos del V1) + interior</span><span>≈ 35 s</span><span>Tono: personal</span></div>
+    </div>
+    <div class="vbody">
+      <div class="specs">
+        <div class="spec"><span class="k">Para quién</span><p>Le apetece, pero tiene miedo: el inglés, el dinero, irse sola.</p></div>
+        <div class="spec"><span class="k">Objetivo del vídeo</span><p>Que se identifique con ella y vea que este mes es más fácil dar el paso.</p></div>
+        <div class="spec"><span class="k">Importante</span><p>Todo tiene que ser su historia real: de dónde es, qué curso hizo y qué hace hoy. <span class="chk">validar con ella</span></p></div>
+      </div>
+      <div><h4>3 hooks para grabar</h4>
+        <ol class="hooks">
+          <li>"Hace tres años me vine a Australia con un curso de inglés y no he vuelto."</li>
+          <li>"Lo que me habría ahorrado si me hubiera venido a Australia este Black Friday."</li>
+          <li>"Si me volviera a venir a Australia, lo haría este mes. Te digo por qué."</li>
+        </ol></div>
+      <div class="copyrow"><h4>Guion</h4><button class="copy" type="button" data-target="s4">Copiar guion</button></div>
+      <div class="tablebox"><table class="script" id="s4">
+        <thead><tr><th>Tiempo</th><th>Plano</th><th>Voz</th><th>Texto en pantalla</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">0–3 s</td><td class="shot">Selfie en exterior. Corte rápido al plano de brazos abiertos en las rocas.</td><td class="vo">"Hace tres años me vine a Australia con un curso de inglés… y no he vuelto."</td><td class="ost">HACE 3 AÑOS…</td></tr>
+          <tr><td class="mono">3–9 s</td><td class="shot">Interior, plano medio. Tono confesión.</td><td class="vo">"Lo que más me costó no fue el inglés. Fue dar el paso. Llevaba años diciendo 'el año que viene'."</td><td class="ost">"EL AÑO QUE VIENE…"</td></tr>
+          <tr><td class="mono">9–15 s</td><td class="shot">B-roll: su primera clase o la escuela, con fotos suyas antiguas si las tiene.</td><td class="vo">"[Frase real: qué le dio miedo y qué pasó al llegar. Ejemplo: 'Llegué sin hablar casi nada y a los tres meses ya trabajaba aquí'.]"</td><td class="ost">[dato real suyo]</td></tr>
+          <tr><td class="mono">15–22 s</td><td class="shot">Vuelve a ella. Más energía.</td><td class="vo">"Si me viniera hoy lo haría este mes, porque en Dingoos es Black Friday: hasta un 50 % en cursos seleccionados y la matrícula gratis."</td><td class="ost">HASTA −50 % · MATRÍCULA GRATIS</td></tr>
+          <tr><td class="mono">22–28 s</td><td class="shot">B-roll: videollamada con el guía.</td><td class="vo">"Y un guía te lo organiza todo, la escuela y el visado, sin cobrarte nada. Como hicieron conmigo."</td><td class="ost">ASESORÍA + VISADO: 0 €</td></tr>
+          <tr><td class="mono">28–34 s</td><td class="shot">Ella en exterior, mar al fondo.</td><td class="vo">"Si llevas años diciendo 'el año que viene', que sea este. Formulario abajo, hasta el 30 de noviembre."</td><td class="ost">QUE SEA ESTE AÑO · hasta el 30/11</td></tr>
+        </tbody></table></div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== VÍDEO 5 ===================== -->
+<section id="v5">
+  <article class="video">
+    <div class="vhead">
+      <div class="eyebrow">Vídeo 5 · Ángulo PRESUPUESTO REAL</div>
+      <h3>"Le pido al guía cuánto cuesta de verdad"</h3>
+      <p class="why">Formato "le pregunto a un experto": la talento pregunta y el guía responde con un presupuesto real que se va rellenando en pantalla hasta la cifra final.</p>
+      <div class="vmeta"><span>Talento B + Guía</span><span>Oficina: videollamada grabada + pantalla</span><span>≈ 35 s</span><span>Tono: conversación</span></div>
+    </div>
+    <div class="vbody">
+      <div class="specs">
+        <div class="spec"><span class="k">Para quién</span><p>Ya tiene la decisión medio tomada y solo le falta saber el número.</p></div>
+        <div class="spec"><span class="k">Objetivo del vídeo</span><p>Mostrar un presupuesto real de 6 meses con el descuento aplicado.</p></div>
+        <div class="spec"><span class="k">Montaje</span><p>Pantalla partida: arriba el guía en la llamada, abajo una tabla (Notion o Excel) que se va rellenando.</p></div>
+      </div>
+      <div><h4>3 hooks para grabar</h4>
+        <ol class="hooks">
+          <li>"Le he pedido a un guía de Dingoos que me diga cuánto cuesta de verdad irme 6 meses a Australia."</li>
+          <li>"¿Cuánto cuesta irse a Australia en 2027? Se lo pregunto a alguien que lo tramita cada día."</li>
+          <li>"Presupuesto real para irte 6 meses a Australia con el Black Friday. Sin letra pequeña."</li>
+        </ol></div>
+      <div class="copyrow"><h4>Guion</h4><button class="copy" type="button" data-target="s5">Copiar guion</button></div>
+      <div class="tablebox"><table class="script" id="s5">
+        <thead><tr><th>Tiempo</th><th>Plano</th><th>Voz</th><th>Texto en pantalla</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">0–3 s</td><td class="shot">Talento B con el portátil y la llamada ya abierta.</td><td class="vo">"Le he pedido a un guía de Dingoos que me diga cuánto cuesta de verdad irme 6 meses a Australia."</td><td class="ost">¿CUÁNTO CUESTA DE VERDAD?</td></tr>
+          <tr><td class="mono">3–9 s</td><td class="shot">Guía en la llamada. Abajo se rellena la tabla.</td><td class="vo">GUÍA: "Un curso de inglés de 6 meses cuesta normalmente 6.800 dólares australianos. Con el Black Friday se queda en 3.680."</td><td class="ost">Curso 6 meses: <s>6.800</s> → 3.680 AUD</td></tr>
+          <tr><td class="mono">9–14 s</td><td class="shot">Igual. Se añaden filas con check en verde.</td><td class="vo">GUÍA: "La matrícula este mes es gratis. La asesoría y el trámite del visado no te los cobramos nunca."</td><td class="ost">Matrícula 0 · Asesoría 0 · Trámite 0</td></tr>
+          <tr><td class="mono">14–20 s</td><td class="shot">Igual. Filas en blanco.</td><td class="vo">GUÍA: "Aparte pagas el seguro médico obligatorio, la tasa del visado y el vuelo."</td><td class="ost">Seguro · Tasa del visado · Vuelo <span class="chk">poner importes</span></td></tr>
+          <tr><td class="mono">20–26 s</td><td class="shot">Talento B pregunta a cámara.</td><td class="vo">"¿Y puedo trabajar mientras estudio?" GUÍA: "Sí, con la visa de estudiante puedes trabajar hasta 48 horas cada dos semanas."</td><td class="ost">TRABAJAS MIENTRAS ESTUDIAS</td></tr>
+          <tr><td class="mono">26–34 s</td><td class="shot">Talento B a cámara. Inserto del formulario.</td><td class="vo">"Si quieres el tuyo, con tu ciudad y tus fechas, rellena el formulario y te lo hacen en 24 o 48 horas. Hasta el 30 de noviembre."</td><td class="ost">PIDE TU PRESUPUESTO · Aplican condiciones</td></tr>
+        </tbody></table></div>
+    </div>
+  </article>
+</section>
+
+
+
+
+</main>
+
+<footer><div class="wrap"><span><b>Navy Marketing</b> · navymarketing.es</span><span>Briefing preparado para Dingoos · Black Friday 2026</span></div></footer>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var t=document.getElementById(btn.dataset.target);
+    var rows=[].slice.call(t.querySelectorAll('tbody tr')).map(function(r){
+      var c=r.querySelectorAll('td');
+      return c[0].innerText+' | PLANO: '+c[1].innerText+'\nVOZ: '+c[2].innerText+'\nTEXTO: '+c[3].innerText;
+    }).join('\n\n');
+    var done=function(){btn.textContent='Copiado';setTimeout(function(){btn.textContent='Copiar guion'},1600)};
+    try{navigator.clipboard.writeText(rows).then(done,function(){sel(t)});}catch(e){sel(t)}
+  });
+});
+function sel(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+</script>
